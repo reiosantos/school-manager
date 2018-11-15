@@ -1,0 +1,64 @@
+
+<div class="col-md-6">
+	<div class="box">
+		<div class="box-header with-border">
+			<h5 class="box-title">Select Classes to add</h5>
+
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+				<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+			</div>
+		</div>
+		<div class="box-body">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="form-group">
+						<label for="multiple-select">Multiple</label>
+						<select name="multiple_class_name[]"
+								id="multiple-select"
+								class="form-control select2" multiple="multiple"
+								data-placeholder="Select a Class">
+							<option value="S1" >S.1</option>
+							<option value="S2" >S.2</option>
+							<option value="S3" >S.3</option>
+							<option value="S4" >S.4</option>
+							<option value="S5" >S.5</option>
+							<option value="S6" >S.6</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Class not listed Here</label>
+						<input type="text" name="class_name" placeholder="class name" class="form-control" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="select-classes">Classes you added</label>
+						<select class="form-control select2-dropdown" id="select-classes">
+							{% if classes is defined and classes|length > 0 %}
+								{% for class in classes %}
+									<option >{{ class.getClassName() }}</option>
+								{% endfor %}
+							{% else %}
+								<option>No Classes Added -------------</option>
+							{% endif %}
+
+						</select>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

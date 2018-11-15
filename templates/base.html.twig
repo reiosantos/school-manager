@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends '@AdminLTE/layout/default-layout.html.twig' %}
+
+{% block title %}{{ school_name }}{% endblock %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+	<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+	{{ encore_entry_link_tags('app') }}
+
+{% endblock %}
+
+{% block logo_mini %} <b>{{ school_name|slice(0, 5) }}</b> {% endblock %}
+{% block logo_large %} <b>{{ school_name }}</b> {% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+
+	{{ encore_entry_script_tags('app') }}
+	{{ parent() }}
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready( function () {
+			$('#subjects_table').DataTable();
+		} );
+	</script>
+{% endblock %}

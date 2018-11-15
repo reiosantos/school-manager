@@ -1,0 +1,20 @@
+
+.text-danger{
+  color: red;
+  list-style: none;
+  text-align: center;
+}
+
+
+.success-activation-div {
+  width: 50%;
+  margin: auto;
+  @media screen and (max-width: 500px){
+    width: 100%;
+  }
+}
+
+label {
+  padding: .5em;
+  border-radius: 3px;
+}

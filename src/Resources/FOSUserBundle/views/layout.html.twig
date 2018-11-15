@@ -1,0 +1,14 @@
+{% extends "AdminLTEBundle:layout:security-layout.html.twig" %}
+
+{% block stylesheets %}
+
+	{{ parent() }}
+	{{ encore_entry_link_tags('app') }}
+
+{% endblock %}
+
+{% block login_box %}
+
+	{% block fos_user_content %}{% endblock %}
+
+{% endblock %}

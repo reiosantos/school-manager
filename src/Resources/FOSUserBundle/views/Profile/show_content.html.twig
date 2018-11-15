@@ -1,0 +1,11 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="success-activation-div">
+    <div class="alert alert-success alert-dismissible">
+
+        <h3><i class="icon fa fa-check"></i> Success!</h3>
+
+        <h4>{{ 'resetting.reset.confirmed'|trans }}</h4>
+		<h5><a href="{{ path('fos_user_security_login') }}">{{ 'security.login.submit'|trans }}</a></h5>
+    </div>
+</div>

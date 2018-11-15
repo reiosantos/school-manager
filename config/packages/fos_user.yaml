@@ -1,0 +1,12 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: App\Entity\AuthUser
+    from_email:
+        address: "%email%"
+        sender_name: "%school_name%"
+
+    registration:
+        form:
+            type: App\Form\RegistrationFormType
+            validation_groups: [ RegistrationAccount, Default]

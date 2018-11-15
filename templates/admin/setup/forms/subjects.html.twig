@@ -1,0 +1,72 @@
+
+<div class="col-md-4">
+
+	<div class="box box-default">
+		<div class="box-header">
+			<h3 class="box-title">Add Subject(s)</h3>
+		</div>
+		<div class="box-body">
+
+			{{ form_start(form) }}
+			<div class="form-group">
+				<label>Subject Code/ No:</label>
+
+				<div class="input-group">
+					<div class="input-group-addon">
+						<i class="fa fa-qrcode"></i>
+					</div>
+					{{ form_widget(form.subjectNo, {'attr':
+						{'class':'form-control', 'placeholder':'subject code','required':'required'}})
+					}}
+					{{ form_errors(form.subjectNo) }}
+				</div>
+				<!-- /.input group -->
+			</div>
+			<!-- /.form group -->
+
+			<div class="form-group">
+				<label>Subject Name:</label>
+
+				<div class="input-group">
+					<div class="input-group-addon">
+						<i class="fa fa-text-width"></i>
+					</div>
+					{{ form_widget(form.subjectName, {'attr':
+						{'class':'form-control', 'placeholder':'name of subject','required':'required'}}) }}
+					{{ form_errors(form.subjectName) }}
+				</div>
+				<!-- /.input group -->
+			</div>
+			<!-- /.form group -->
+
+			<!-- phone mask -->
+			<div class="form-group">
+				<label>Subject Category</label>
+
+				<div class="input-group">
+					<div class="input-group-addon">
+						<i class="fa fa-ellipsis-v"></i>
+					</div>
+					{{ form_widget(form.subjectCategory, {'attr':{'class':'form-control', 'required':'required'}}) }}
+					{{ form_errors(form.subjectCategory) }}
+				</div>
+				<!-- /.input group -->
+			</div>
+			<!-- /.form group -->
+
+			<div class="form-group">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="form-group pull-right">
+						<button type="reset" class="btn btn-primary">Reset</button>
+						<button type="submit" class="btn btn-success">Submit</button>
+					</div>
+				</div>
+			</div>
+
+			{{ form_end(form) }}
+
+		</div>
+		<!-- /.box-body -->
+	</div>
+	<!-- /.box -->
+</div>

@@ -1,0 +1,62 @@
+
+<div class="col-md-6">
+	<div class="box">
+		<div class="box-header with-border">
+			<h5 class="box-title">Add New Roles/Positions</h5>
+
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+				<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+			</div>
+		</div>
+		<div class="box-body">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="form-group">
+						<label for="select-many">Select Multiple</label>
+						<select name="multiple_roles[]" id="select-many"
+								class="form-control select2" multiple="multiple"
+								data-placeholder="Select a role">
+							<option value="ROLE_ADMIN">Role Administrators</option>
+							<option value="ROLE_CLASS_TEACHER">Role Class Teacher</option>
+							<option value="ROLE_TEACHER">Role Teacher</option>
+							<option value="ROLE_STUDENT">Role Student</option>
+							<option value="ROLE_USER">Other User</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Add new role that is not listed</label>
+						<input type="text" name="role_name" placeholder="Role name" class="form-control" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="select-position">Positions Available</label>
+						<select class="form-control select2-dropdown" id="select-position">
+							{% if positions is defined and positions|length > 0 %}
+								{% for position in positions %}
+									<option >{{ position.getPosition()|upper }}</option>
+								{% endfor %}
+							{% else %}
+								<option>No Roles or Positions Added -------------</option>
+							{% endif %}
+
+						</select>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

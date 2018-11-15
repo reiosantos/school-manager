@@ -1,0 +1,77 @@
+{% extends 'admin/base.admin.html.twig' %}
+
+{% block title %}
+    Initial Configurations
+{% endblock %}
+
+{% block body %}
+
+	{% block page_title %} System Setup {% endblock %}
+	{% block page_subtitle %} Conf {% endblock %}
+
+	{% block page_content_start %}
+
+		{% set successMessage = app.session.flashBag.get(constant('App\\Utils\\Constants::KEY_ACTION_SUCCESS')) %}
+		{% set errorMessage = app.session.flashBag.get(constant('App\\Utils\\Constants::KEY_ACTION_ERROR')) %}
+
+		{% if app.request.hasPreviousSession %}
+			{% for message in successMessage %}
+				<label style="display: {{ successMessage ? 'inline-block': 'none' }};" class="label-success">
+					{{ message }}
+				</label>
+			{% endfor %}
+		{% endif %}
+
+		{% if app.request.hasPreviousSession %}
+			{% for message in errorMessage %}
+				<label style="display: {{ errorMessage ? 'inline-block': 'none' }};" class="label-danger">
+					{{ message }}
+				</label>
+			{% endfor %}
+		{% endif %}
+	{% endblock %}
+
+	{% block page_content %}
+
+		<form action="{{ url('admin_setup_initial') }}" method="post" role="form" name="setup_form">
+
+			<div class="box box-success">
+				<div class="box-header with-border">
+					<h3 class="box-title">Configurations</h3>
+
+					<div class="box-tools pull-right">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove">
+							<i class="fa fa-times"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="box-body">
+					<div class="row">
+						{% include 'admin/setup/forms/classes.html.twig' %}
+						{% include 'admin/setup/forms/positions.html.twig' %}
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group pull-right">
+								<button type="reset" class="btn btn-primary">Reset</button>
+								<button type="submit" class="btn btn-success">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<div class="row">
+
+			{% include 'admin/setup/forms/subjects.html.twig' %}
+
+			{% include 'admin/setup/forms/subject-list.html.twig' %}
+		</div>
+
+	{% endblock %}
+
+{% endblock %}

@@ -48,3 +48,14 @@
 /.web-server-pid
 .env*
 .idea
+assets/mdl/
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+fontawesome
+var/log/*
+public/bundles/

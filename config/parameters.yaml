@@ -1,0 +1,12 @@
+
+parameters:
+    locale: 'en'
+    locale_fallback: 'fr'
+    student_photos_directory: 'assets/images/students_profiles/'
+    secret: 'St John''s SS Wakiso reiosantos@yahoo.com'
+    school_name: 'Mt. George SS'
+    moto: 'Knowledge has no limit'
+    vision: ''
+    mission: ''
+    email: email@myschool.com
+    contact: ''

@@ -1,0 +1,53 @@
+#
+# Configuration file for the AdminLTE bundle
+#
+# For more information about the bundle settings visit:
+# https://github.com/kevinpapst/AdminLTEBundle/blob/master/Resources/docs/configurations.md
+#
+admin_lte:
+    options:
+        # default image for missing user avatar images
+        default_avatar: bundles/adminlte/images/default_avatar.png
+        # the color skin
+        skin: skin-green
+        # if activated, the boxed_layout will be deactivated
+        fixed_layout: false
+        # boxed layout (true) or full-screen (false)
+        boxed_layout: false
+        # initial collapsed state of the sidebar
+        collapsed_sidebar: false
+        # whether the logo collapses or not
+        mini_sidebar: true
+
+    theme:
+        widget:
+            type: 'primary'
+            bordered: true
+            collapsible: false
+            collapsible_title: 'Collapse'
+            removable: false
+            removable_title: 'Remove'
+            solid: false
+            use_footer: true
+        button:
+            type: 'primary'
+            size: false
+
+    knp_menu:
+        enable: false
+        main_menu: adminlte_main
+        breadcrumb_menu: false
+
+    routes:
+        adminlte_welcome: home_page
+        adminlte_login: fos_user_security_login
+        adminlte_login_check: fos_user_security_check
+        adminlte_registration: fos_user_registration_register
+        adminlte_password_reset: fos_user_resetting_request
+        adminlte_message: message
+        adminlte_messages: messages
+        adminlte_notification: notification
+        adminlte_notifications: notifications
+        adminlte_task: task
+        adminlte_tasks: tasks
+        adminlte_profile: fos_user_profile_show
