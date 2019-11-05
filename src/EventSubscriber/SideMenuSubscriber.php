@@ -6,7 +6,7 @@
  * Time: 14:53
  */
 
-namespace App\Services;
+namespace App\EventSubscriber;
 
 
 use App\Utils\UtilClass;

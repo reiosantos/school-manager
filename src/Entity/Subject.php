@@ -7,125 +7,123 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Subject
  *
- * @ORM\Table(name="Subject", uniqueConstraints={@ORM\UniqueConstraint(name="subject_no_UNIQUE", columns={"subject_no"})})
+ * @ORM\Table(name="subjects", uniqueConstraints={@ORM\UniqueConstraint(name="subject_no_UNIQUE",
+ *     columns={"subject_no"})})
  * @ORM\Entity
  */
 class Subject
 {
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="subject_no", type="string", nullable=false, unique=true)
-     *
-     */
-    private $subjectNo;
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="subject_no", type="string", nullable=false, unique=true)
+	 *
+	 */
+	private $subjectNo;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="subject_name", type="string", length=255, nullable=true)
-     */
-    private $subjectName;
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="subject_name", type="string", length=255, nullable=true)
+	 */
+	private $subjectName;
 
-    /**
-     * @var integer|null
-     *
-     * @ORM\Column(name="ID", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+	/**
+	 * @var integer|null
+	 *
+	 * @ORM\Column(name="ID", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="IDENTITY")
+	 */
+	private $id;
 
-    /**
-     * @var string|null
-     *
-     *@ORM\Column(name="subject_category", type="string", length=255, nullable=true)
-     *
-     */
-    private $subjectCategory;
-
-
-
-    /**
-     * Set subjectNo
-     *
-     * @param integer $subjectNo
-     *
-     * @return Subject
-     */
-    final public function setSubjectNo($subjectNo): Subject
-	{
-        $this->subjectNo = $subjectNo;
-
-        return $this;
-    }
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="subject_category", type="string", length=255, nullable=true)
+	 *
+	 */
+	private $subjectCategory;
 
 	/**
 	 * Get subjectNo
 	 *
 	 * @return null|string
 	 */
-    final public function getSubjectNo(): ?string
+	public function getSubjectNo(): ?string
 	{
-        return $this->subjectNo;
-    }
+		return $this->subjectNo;
+	}
 
-    /**
-     * Set subjectName
-     *
-     * @param string $subjectName
-     *
-     * @return Subject
-     */
-    final public function setSubjectName($subjectName): Subject
+	/**
+	 * Set subjectNo
+	 *
+	 * @param integer $subjectNo
+	 *
+	 * @return Subject
+	 */
+	public function setSubjectNo(int $subjectNo): Subject
 	{
-        $this->subjectName = $subjectName;
+		$this->subjectNo = $subjectNo;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get subjectName
-     *
-     * @return string
-     */
-    final public function getSubjectName(): ?string
+	/**
+	 * Get subjectName
+	 *
+	 * @return string
+	 */
+	public function getSubjectName(): ?string
 	{
-        return $this->subjectName;
-    }
+		return $this->subjectName;
+	}
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    final public function getId(): int
+	/**
+	 * Set subjectName
+	 *
+	 * @param string $subjectName
+	 *
+	 * @return Subject
+	 */
+	public function setSubjectName(string $subjectName): Subject
 	{
-        return $this->id;
-    }
+		$this->subjectName = $subjectName;
 
+		return $this;
+	}
 
-    /**
-     * Set subjectCategory
-     *
-     * @param string $subjectCategory
-     *
-     * @return Subject
-     */
-    final public function setSubjectCategory($subjectCategory): Subject
+	/**
+	 * Get id
+	 *
+	 * @return integer
+	 */
+	public function getId(): int
 	{
-        $this->subjectCategory = $subjectCategory;
+		return $this->id;
+	}
 
-        return $this;
-    }
-
-    /**
-     * Get subjectCategory
-     *
-     * @return string
-     */
-    final public function getSubjectCategory(): ?string
+	/**
+	 * Get subjectCategory
+	 *
+	 * @return string
+	 */
+	public function getSubjectCategory(): ?string
 	{
-        return $this->subjectCategory;
-    }
+		return $this->subjectCategory;
+	}
+
+	/**
+	 * Set subjectCategory
+	 *
+	 * @param string $subjectCategory
+	 *
+	 * @return Subject
+	 */
+	public function setSubjectCategory(string $subjectCategory): Subject
+	{
+		$this->subjectCategory = $subjectCategory;
+
+		return $this;
+	}
 }

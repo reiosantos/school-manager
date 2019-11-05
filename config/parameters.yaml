@@ -3,7 +3,7 @@ parameters:
     locale: 'en'
     locale_fallback: 'fr'
     student_photos_directory: 'assets/images/students_profiles/'
-    secret: 'St John''s SS Wakiso reiosantos@yahoo.com'
+    secret: '%env(resolve:APP_ENV)%'
     school_name: 'Mt. George SS'
     moto: 'Knowledge has no limit'
     vision: ''

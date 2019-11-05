@@ -9,6 +9,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use function in_array;
 
 class Roles
 {
@@ -24,15 +25,11 @@ class Roles
 	/**
 	 * {@inheritdoc}
 	 */
-	final public function addRole($role)
+	public function removeRole(string $role): Roles
 	{
-		$role = strtoupper($role);
-		if ($role === static::ROLE_DEFAULT) {
-			return $this;
-		}
-
-		if (!\in_array($role, $this->roles, true)) {
-			$this->roles[] = $role;
+		if (false !== $key = array_search(strtoupper($role), $this->roles, true)) {
+			unset($this->roles[$key]);
+			$this->roles = array_values($this->roles);
 		}
 		return $this;
 	}
@@ -40,7 +37,23 @@ class Roles
 	/**
 	 * {@inheritdoc}
 	 */
-	final public function setRoles(array $roles)
+	public function hasRole(string $role): bool
+	{
+		return in_array(strtoupper($role), $this->getRoles(), true);
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getRoles(): array
+	{
+		return array_unique($this->roles);
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function setRoles(array $roles): Roles
 	{
 		$this->roles = array();
 
@@ -53,28 +66,16 @@ class Roles
 	/**
 	 * {@inheritdoc}
 	 */
-	final public function getRoles(): array
+	public function addRole(string $role): Roles
 	{
-		return array_unique($this->roles);
-	}
+		$role = strtoupper($role);
+		if ($role === static::ROLE_DEFAULT) {
+			return $this;
+		}
 
-	/**
-	 * {@inheritdoc}
-	 */
-	final public function removeRole($role)
-	{
-		if (false !== $key = array_search(strtoupper($role), $this->roles, true)) {
-			unset($this->roles[$key]);
-			$this->roles = array_values($this->roles);
+		if (!in_array($role, $this->roles, true)) {
+			$this->roles[] = $role;
 		}
 		return $this;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	final public function hasRole($role): bool
-	{
-		return \in_array(strtoupper($role), $this->getRoles(), true);
 	}
 }

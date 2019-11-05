@@ -4,9 +4,6 @@ twig:
     strict_variables: '%kernel.debug%'
 
     globals:
-        school_name: '%school_name%'
-        moto: '%moto%'
-        vision: '%vision%'
-        mission: '%mission%'
         email: '%email%'
         contact: '%contact%'
+        settings: '@App\EventSubscriber\SettingsValuesSubscriber'

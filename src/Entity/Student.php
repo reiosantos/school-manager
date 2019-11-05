@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  */
-class Student extends BaseUser
+class Student extends MBaseUser
 {
 	/**
 	 * @var string|null
@@ -67,39 +67,25 @@ class Student extends BaseUser
 	private $parentContact;
 
 	/**
+	 * Get studentNo
+	 *
+	 * @return string
+	 */
+	public function getStudentNo(): string
+	{
+		return $this->studentNo;
+	}
+
+	/**
 	 * Set studentNo
 	 *
 	 * @param string $studentNo
 	 *
 	 * @return Student
 	 */
-	final public function setStudentNo($studentNo): Student
+	public function setStudentNo(string $studentNo): Student
 	{
 		$this->studentNo = $studentNo;
-
-		return $this;
-	}
-
-	/**
-	 * Get studentNo
-	 *
-	 * @return string
-	 */
-	final public function getStudentNo(): string
-	{
-		return $this->studentNo;
-	}
-
-	/**
-	 * Set class
-	 *
-	 * @param string $class
-	 *
-	 * @return Student
-	 */
-	final public function setClass($class): Student
-	{
-		$this->class = $class;
 
 		return $this;
 	}
@@ -109,21 +95,21 @@ class Student extends BaseUser
 	 *
 	 * @return string
 	 */
-	final public function getClass(): ?string
+	public function getClass(): ?string
 	{
 		return $this->class;
 	}
 
 	/**
-	 * Set religion
+	 * Set class
 	 *
-	 * @param string $religion
+	 * @param string $class
 	 *
 	 * @return Student
 	 */
-	final public function setReligion($religion): Student
+	public function setClass(string $class): Student
 	{
-		$this->religion = $religion;
+		$this->class = $class;
 
 		return $this;
 	}
@@ -133,21 +119,21 @@ class Student extends BaseUser
 	 *
 	 * @return string
 	 */
-	final public function getReligion(): ?string
+	public function getReligion(): ?string
 	{
 		return $this->religion;
 	}
 
 	/**
-	 * Set parentFirstName
+	 * Set religion
 	 *
-	 * @param string $parentFirstName
+	 * @param string $religion
 	 *
 	 * @return Student
 	 */
-	final public function setParentFirstName($parentFirstName): Student
+	public function setReligion(string $religion): Student
 	{
-		$this->parentFirstName = $parentFirstName;
+		$this->religion = $religion;
 
 		return $this;
 	}
@@ -157,21 +143,21 @@ class Student extends BaseUser
 	 *
 	 * @return string
 	 */
-	final public function getParentFirstName(): ?string
+	public function getParentFirstName(): ?string
 	{
 		return $this->parentFirstName;
 	}
 
 	/**
-	 * Set parentLastName
+	 * Set parentFirstName
 	 *
-	 * @param string $parentLastName
+	 * @param string $parentFirstName
 	 *
 	 * @return Student
 	 */
-	final public function setParentLastName($parentLastName): Student
+	public function setParentFirstName(string $parentFirstName): Student
 	{
-		$this->parentLastName = $parentLastName;
+		$this->parentFirstName = $parentFirstName;
 
 		return $this;
 	}
@@ -181,21 +167,21 @@ class Student extends BaseUser
 	 *
 	 * @return string
 	 */
-	final public function getParentLastName(): ?string
+	public function getParentLastName(): ?string
 	{
 		return $this->parentLastName;
 	}
 
 	/**
-	 * Set parentEmail
+	 * Set parentLastName
 	 *
-	 * @param string $parentEmail
+	 * @param string $parentLastName
 	 *
 	 * @return Student
 	 */
-	final public function setParentEmail($parentEmail): Student
+	public function setParentLastName(string $parentLastName): Student
 	{
-		$this->parentEmail = $parentEmail;
+		$this->parentLastName = $parentLastName;
 
 		return $this;
 	}
@@ -205,21 +191,21 @@ class Student extends BaseUser
 	 *
 	 * @return string
 	 */
-	final public function getParentEmail(): ?string
+	public function getParentEmail(): ?string
 	{
 		return $this->parentEmail;
 	}
 
 	/**
-	 * Set parentContact
+	 * Set parentEmail
 	 *
-	 * @param string $parentContact
+	 * @param string $parentEmail
 	 *
 	 * @return Student
 	 */
-	final public function setParentContact($parentContact): Student
+	public function setParentEmail(string $parentEmail): Student
 	{
-		$this->parentContact = $parentContact;
+		$this->parentEmail = $parentEmail;
 
 		return $this;
 	}
@@ -229,17 +215,32 @@ class Student extends BaseUser
 	 *
 	 * @return string
 	 */
-	final public function getParentContact(): ?string
+	public function getParentContact(): ?string
 	{
 		return $this->parentContact;
 	}
 
-	final public function serialize(): string
+	/**
+	 * Set parentContact
+	 *
+	 * @param string $parentContact
+	 *
+	 * @return Student
+	 */
+	public function setParentContact(string $parentContact): Student
+	{
+		$this->parentContact = $parentContact;
+
+		return $this;
+	}
+
+	public function serialize(): string
 	{
 		return $this->serializer->serialize($this);
 	}
 
-	final public function unserialize($serialized)
+	/** @noinspection MissingReturnTypeInspection */
+	public function unserialize(/** @noinspection MissingParameterTypeDeclarationInspection */ $serialized)
 	{
 		$this->serializer->deserialize($serialized, __CLASS__);
 	}

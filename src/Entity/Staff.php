@@ -11,106 +11,106 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  */
-class Staff extends BaseUser
+class Staff extends MBaseUser
 {
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="staff_no", type="string", nullable=false, unique=true)
-     */
-    private $staffNo;
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="staff_no", type="string", nullable=false, unique=true)
+	 */
+	private $staffNo;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="email", type="string", length=45, nullable=true)
-     */
-    private $email;
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="email", type="string", length=45, nullable=true)
+	 */
+	private $email;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="contact", type="string", length=45, nullable=true)
-     */
-    private $contact;
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="contact", type="string", length=45, nullable=true)
+	 */
+	private $contact;
 
-    /**
-     * Set staffNo
-     *
-     * @param string $staffNo
-     *
-     * @return Staff
-     */
-    final public function setStaffNo($staffNo): Staff
+	/**
+	 * Get staffNo
+	 *
+	 * @return string
+	 */
+	public function getStaffNo(): string
 	{
-        $this->staffNo = $staffNo;
-        return $this;
-    }
+		return $this->staffNo;
+	}
 
-    /**
-     * Get staffNo
-     *
-     * @return string
-     */
-    final public function getStaffNo(): string
+	/**
+	 * Set staffNo
+	 *
+	 * @param string $staffNo
+	 *
+	 * @return Staff
+	 */
+	public function setStaffNo(string $staffNo): Staff
 	{
-        return $this->staffNo;
-    }
+		$this->staffNo = $staffNo;
+		return $this;
+	}
 
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Staff
-     */
-    final public function setEmail(string $email): Staff
+	/**
+	 * Get email
+	 *
+	 * @return string
+	 */
+	public function getEmail(): ?string
 	{
-        $this->email = $email;
+		return $this->email;
+	}
 
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    final public function getEmail(): ?string
+	/**
+	 * Set email
+	 *
+	 * @param string $email
+	 *
+	 * @return Staff
+	 */
+	public function setEmail(string $email): Staff
 	{
-        return $this->email;
-    }
+		$this->email = $email;
 
-    /**
-     * Set contact
-     *
-     * @param string $contact
-     *
-     * @return Staff
-     */
-    final public function setContact(string $contact): Staff
+		return $this;
+	}
+
+	/**
+	 * Get contact
+	 *
+	 * @return string
+	 */
+	public function getContact(): ?string
 	{
-        $this->contact = $contact;
+		return $this->contact;
+	}
 
-        return $this;
-    }
-
-    /**
-     * Get contact
-     *
-     * @return string
-     */
-    final public function getContact(): ?string
+	/**
+	 * Set contact
+	 *
+	 * @param string $contact
+	 *
+	 * @return Staff
+	 */
+	public function setContact(string $contact): Staff
 	{
-        return $this->contact;
-    }
+		$this->contact = $contact;
 
-	final public function serialize(): string
+		return $this;
+	}
+
+	public function serialize(): string
 	{
 		return $this->serializer->serialize($this);
 	}
 
-	final public function unserialize($serialized): void
+	public function unserialize(/** @noinspection MissingParameterTypeDeclarationInspection */ $serialized): void
 	{
 		$this->serializer->deserialize($serialized, __CLASS__);
 	}

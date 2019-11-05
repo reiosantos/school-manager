@@ -46,7 +46,7 @@
 
 # Embedded web-server pid file
 /.web-server-pid
-.env*
+.env
 .idea
 assets/mdl/
 
@@ -59,3 +59,6 @@ yarn-error.log
 fontawesome
 var/log/*
 public/bundles/
+*.log
+cache/
+*.css

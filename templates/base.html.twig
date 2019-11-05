@@ -1,6 +1,8 @@
 {% extends '@AdminLTE/layout/default-layout.html.twig' %}
 
-{% block title %}{{ school_name }}{% endblock %}
+{% set settings = settings.getValue(app.request, 'school_name', true) %}
+
+{% block title %}{{ settings.school_name }}{% endblock %}
 
 {% block stylesheets %}
 
@@ -10,8 +12,8 @@
 
 {% endblock %}
 
-{% block logo_mini %} <b>{{ school_name|slice(0, 5) }}</b> {% endblock %}
-{% block logo_large %} <b>{{ school_name }}</b> {% endblock %}
+{% block logo_mini %} <b>{{ settings.school_name|slice(0, 5) }}</b> {% endblock %}
+{% block logo_large %} <b>{{ settings.school_name }}</b> {% endblock %}
 
 {% block body %}{% endblock %}
 

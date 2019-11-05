@@ -7,60 +7,58 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Classes
  *
- * @ORM\Table(name="Classes")
+ * @ORM\Table(name="classes")
  * @ORM\Entity
  */
 class Classes
 {
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="class_name", type="string", length=45, nullable=true)
-     */
-    private $className;
+	/**
+	 * @var string|null
+	 *
+	 * @ORM\Column(name="class_name", type="string", length=45, nullable=true)
+	 */
+	private $className;
 
-    /**
-     * @var integer|null
-     *
-     * @ORM\Column(name="ID", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+	/**
+	 * @var integer|null
+	 *
+	 * @ORM\Column(name="ID", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="IDENTITY")
+	 */
+	private $id;
 
-
-
-    /**
-     * Set className
-     *
-     * @param string $className
-     *
-     * @return Classes
-     */
-    final public function setClassName($className): Classes
+	/**
+	 * Get className
+	 *
+	 * @return string
+	 */
+	public function getClassName(): string
 	{
-        $this->className = $className;
+		return $this->className;
+	}
 
-        return $this;
-    }
-
-    /**
-     * Get className
-     *
-     * @return string
-     */
-    final public function getClassName(): string
+	/**
+	 * Set className
+	 *
+	 * @param string $className
+	 *
+	 * @return Classes
+	 */
+	public function setClassName(string $className): Classes
 	{
-        return $this->className;
-    }
+		$this->className = $className;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    final public function getId(): int
+		return $this;
+	}
+
+	/**
+	 * Get id
+	 *
+	 * @return integer
+	 */
+	public function getId(): int
 	{
-        return $this->id;
-    }
+		return $this->id;
+	}
 }

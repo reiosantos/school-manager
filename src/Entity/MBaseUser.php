@@ -9,11 +9,11 @@
 namespace App\Entity;
 
 use App\Utils\CustomSerializer;
-use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 use Serializable;
 
-abstract class BaseUser extends Roles implements Serializable
+abstract class MBaseUser extends Roles implements Serializable
 {
 	/**
 	 * @var object $serializer
@@ -81,23 +81,9 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return integer
 	 */
-	final public function getId(): int
+	public function getId(): int
 	{
 		return $this->id;
-	}
-
-	/**
-	 * Set firstName
-	 *
-	 * @param string $firstName
-	 *
-	 * @return BaseUser
-	 */
-	final public function setFirstName(string $firstName): BaseUser
-	{
-		$this->firstName = $firstName;
-
-		return $this;
 	}
 
 	/**
@@ -105,21 +91,21 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return string
 	 */
-	final public function getFirstName(): ?string
+	public function getFirstName(): ?string
 	{
 		return $this->firstName;
 	}
 
 	/**
-	 * Set lastName
+	 * Set firstName
 	 *
-	 * @param string $lastName
+	 * @param string $firstName
 	 *
-	 * @return BaseUser
+	 * @return MBaseUser
 	 */
-	final public function setLastName(string $lastName): BaseUser
+	public function setFirstName(string $firstName): MBaseUser
 	{
-		$this->lastName = $lastName;
+		$this->firstName = $firstName;
 
 		return $this;
 	}
@@ -129,21 +115,21 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return string
 	 */
-	final public function getLastName(): ?string
+	public function getLastName(): ?string
 	{
 		return $this->lastName;
 	}
 
 	/**
-	 * Set address
+	 * Set lastName
 	 *
-	 * @param string $address
+	 * @param string $lastName
 	 *
-	 * @return BaseUser
+	 * @return MBaseUser
 	 */
-	final public function setAddress(string $address): BaseUser
+	public function setLastName(string $lastName): MBaseUser
 	{
-		$this->address = $address;
+		$this->lastName = $lastName;
 
 		return $this;
 	}
@@ -153,21 +139,21 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return string
 	 */
-	final public function getAddress(): ?string
+	public function getAddress(): ?string
 	{
 		return $this->address;
 	}
 
 	/**
-	 * Set nationality
+	 * Set address
 	 *
-	 * @param string $nationality
+	 * @param string $address
 	 *
-	 * @return BaseUser
+	 * @return MBaseUser
 	 */
-	final public function setNationality(string $nationality): BaseUser
+	public function setAddress(string $address): MBaseUser
 	{
-		$this->nationality = $nationality;
+		$this->address = $address;
 
 		return $this;
 	}
@@ -177,21 +163,21 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return string
 	 */
-	final public function getNationality(): ?string
+	public function getNationality(): ?string
 	{
 		return $this->nationality;
 	}
 
 	/**
-	 * Set joinDate
+	 * Set nationality
 	 *
-	 * @param DateTime $joinDate
+	 * @param string $nationality
 	 *
-	 * @return BaseUser
+	 * @return MBaseUser
 	 */
-	final public function setJoinDate(DateTime $joinDate): BaseUser
+	public function setNationality(string $nationality): MBaseUser
 	{
-		$this->joinDate = $joinDate;
+		$this->nationality = $nationality;
 
 		return $this;
 	}
@@ -201,21 +187,21 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return DateTime
 	 */
-	final public function getJoinDate(): ?DateTime
+	public function getJoinDate(): ?DateTime
 	{
 		return $this->joinDate;
 	}
 
 	/**
-	 * Set imageName
+	 * Set joinDate
 	 *
-	 * @param string $imageName
+	 * @param DateTime $joinDate
 	 *
-	 * @return BaseUser
+	 * @return MBaseUser
 	 */
-	final public function setImageName($imageName): BaseUser
+	public function setJoinDate(DateTime $joinDate): MBaseUser
 	{
-		$this->imageName = $imageName;
+		$this->joinDate = $joinDate;
 
 		return $this;
 	}
@@ -225,8 +211,22 @@ abstract class BaseUser extends Roles implements Serializable
 	 *
 	 * @return string
 	 */
-	final public function getImageName(): ?string
+	public function getImageName(): ?string
 	{
 		return $this->imageName;
+	}
+
+	/**
+	 * Set imageName
+	 *
+	 * @param string $imageName
+	 *
+	 * @return MBaseUser
+	 */
+	public function setImageName(string $imageName): MBaseUser
+	{
+		$this->imageName = $imageName;
+
+		return $this;
 	}
 }

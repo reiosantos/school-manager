@@ -6,7 +6,7 @@
  * Time: 19:31
  */
 
-namespace App\Services;
+namespace App\EventSubscriber;
 
 use App\Entity\AuthUser;
 use KevinPapst\AdminLTEBundle\Event\ShowUserEvent;

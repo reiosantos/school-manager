@@ -3,19 +3,19 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Model\User;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuthUserRepository")
  */
-class AuthUser extends BaseUser
+class AuthUser extends User
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    protected $id;
+	/**
+	 * @ORM\Id()
+	 * @ORM\GeneratedValue()
+	 * @ORM\Column(type="integer")
+	 */
+	protected $id;
 
 	/**
 	 * @var string|null
@@ -27,7 +27,7 @@ class AuthUser extends BaseUser
 	/**
 	 * @return string
 	 */
-	final public function getUserNo(): ?string
+	public function getUserNo(): ?string
 	{
 		return $this->userNo;
 	}
@@ -36,9 +36,14 @@ class AuthUser extends BaseUser
 	 * @param int $userNo
 	 * @return AuthUser
 	 */
-	final public function setUserNo(int $userNo): AuthUser
+	public function setUserNo(int $userNo): AuthUser
 	{
 		$this->userNo = $userNo;
 		return $this;
+	}
+
+	public function getId(): ?int
+	{
+		return $this->id;
 	}
 }
